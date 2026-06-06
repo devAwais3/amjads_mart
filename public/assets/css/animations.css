@@ -1,0 +1,305 @@
+/* =========================================================
+   Amjad's Mart — Animations CSS
+   ========================================================= */
+
+/* ── Scroll Reveal Base ────────────────────────────────── */
+
+/*.scroll-reveal {
+  opacity: 0;
+  transform: translateY(40px);
+} */
+
+/*.scroll-reveal {
+  opacity: 1;
+  transform: none;
+}
+
+.js-animations-loaded .scroll-reveal {
+  opacity: 0;
+  transform: translateY(40px);
+}
+
+.scroll-reveal.revealed {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1),
+              transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+} */
+
+.scroll-reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1),
+    transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* only enable "start state" when JS is available */
+.js-animations-loaded .scroll-reveal {
+  opacity: 0;
+  transform: translateY(40px);
+}
+
+.scroll-reveal.revealed {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1),
+    transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+
+/* Stagger delays for grid children */
+.stagger-grid .scroll-reveal:nth-child(1) {
+  transition-delay: 0ms;
+}
+
+.stagger-grid .scroll-reveal:nth-child(2) {
+  transition-delay: 100ms;
+}
+
+.stagger-grid .scroll-reveal:nth-child(3) {
+  transition-delay: 200ms;
+}
+
+.stagger-grid .scroll-reveal:nth-child(4) {
+  transition-delay: 300ms;
+}
+
+.stagger-grid .scroll-reveal:nth-child(5) {
+  transition-delay: 400ms;
+}
+
+.stagger-grid .scroll-reveal:nth-child(6) {
+  transition-delay: 500ms;
+}
+
+.stagger-grid .scroll-reveal:nth-child(7) {
+  transition-delay: 600ms;
+}
+
+.stagger-grid .scroll-reveal:nth-child(8) {
+  transition-delay: 700ms;
+}
+
+/* ── Fade In Up (simple utility) ───────────────────────── */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in-up {
+  animation: fadeInUp 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+/* ── Hero text animation ───────────────────────────────── */
+@keyframes heroSlide {
+  from {
+    opacity: 0;
+    transform: translateX(-32px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.hero-content h1 {
+  animation: heroSlide .7s .1s both;
+}
+
+.hero-content p {
+  animation: heroSlide .7s .25s both;
+}
+
+.hero-content .btn {
+  animation: heroSlide .7s .4s both;
+}
+
+/* ── Page Load Animations ──────────────────────────────── */
+.page-enter {
+  animation: fadeInUp 0.5s ease both;
+}
+
+/* ── Navbar Shrink (class toggled by JS) ───────────────── */
+/* handled in style.css via .navbar.scrolled */
+
+/* ── Count-Up ──────────────────────────────────────────── */
+.count-up {
+  display: inline-block;
+  transition: transform 0.1s ease;
+}
+
+/* ── Pulse (for badges / alerts) ──────────────────────── */
+@keyframes pulse {
+
+  0%,
+  100% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.08);
+  }
+}
+
+.pulse {
+  animation: pulse 2s infinite;
+}
+
+/* ── Spin (for loading) ────────────────────────────────── */
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.spin {
+  animation: spin .8s linear infinite;
+}
+
+/* ── Shake (for form errors) ───────────────────────────── */
+@keyframes shake {
+
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+
+  20% {
+    transform: translateX(-6px);
+  }
+
+  40% {
+    transform: translateX(6px);
+  }
+
+  60% {
+    transform: translateX(-4px);
+  }
+
+  80% {
+    transform: translateX(4px);
+  }
+}
+
+.shake {
+  animation: shake .4s ease;
+}
+
+/* ── Success Checkmark ─────────────────────────────────── */
+@keyframes drawCheck {
+  from {
+    stroke-dashoffset: 100;
+  }
+
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+.check-circle-anim {
+  stroke-dasharray: 100;
+  stroke-dashoffset: 100;
+  animation: drawCheck .6s .3s ease forwards;
+}
+
+/* ── Overlay Fade ──────────────────────────────────────── */
+@keyframes overlayFadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes overlayFadeOut {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+  }
+}
+
+/* ── Slide In Right (toast) ────────────────────────────── */
+@keyframes slideInRight {
+  from {
+    transform: translateX(120%);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* ── Cart icon bounce (also in style.css) ──────────────── */
+@keyframes cartBounce {
+
+  0%,
+  100% {
+    transform: scale(1);
+  }
+
+  30% {
+    transform: scale(1.45);
+  }
+
+  60% {
+    transform: scale(.9);
+  }
+}
+
+/* ── Skeleton shimmer ──────────────────────────────────── */
+/* defined in style.css .skeleton */
+
+/* ── Button press ──────────────────────────────────────── */
+.btn:active {
+  transform: scale(.97);
+}
+
+/* ── Number stepper press feedback ─────────────────────── */
+.qty-btn:active {
+  transform: scale(.88);
+}
+
+/* ── Image zoom on hover (product card) ────────────────── */
+/* handled in style.css .product-card:hover .product-img-wrap img */
+
+/* ── Card entrance on horizontal scroll reveal ──────────── */
+.h-scroll-container .product-card {
+  transition: transform .3s cubic-bezier(0.4, 0, 0.2, 1),
+    box-shadow .3s cubic-bezier(0.4, 0, 0.2, 1),
+    border-color .3s ease,
+    opacity .4s ease;
+}
+
+/* ── Modal ─────────────────────────────────────────────── */
+.modal.fade .modal-dialog {
+  transform: translateY(-20px);
+  transition: transform .3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.modal.show .modal-dialog {
+  transform: translateY(0);
+}
+/* Safety: if JS never loads, reveal after delay */
+@media (prefers-reduced-motion: reduce) {
+  .scroll-reveal,
+  .scroll-reveal.revealed {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}
